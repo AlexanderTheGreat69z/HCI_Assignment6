@@ -1,0 +1,25 @@
+body{
+    background-color: #d4c1be;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+
+    color: #f2e9e4;
+    background-color: #c9ada7;
+
+    text-align: center;
+    text-shadow: -2px 2px 5px black;
+    border-bottom: 7px solid #9a8c98;
+    border-top: 2px solid #9a8c98;
+}
+
+.section-title{
+    width: max-content;
+    border-bottom: 5px solid #9a8c98;
+}

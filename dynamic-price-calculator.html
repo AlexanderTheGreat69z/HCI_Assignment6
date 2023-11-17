@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Dynamic Price Calculator</title>
+    <script>
+        $(document).ready(function(){
+            var id_list  = ['#classic', '#spectre', '#vandal', '#operator']
+            var img_list  = [
+                [
+                    'images/dynamic-price-calculator/Classic/Daydreams_Classic.png',
+                    'images/dynamic-price-calculator/Classic/Kohaku_Matsuba_Classic.png',
+                    'images/dynamic-price-calculator/Classic/Prime_Classic.png',
+                    'images/dynamic-price-calculator/Classic/Spectrum_Classic.png',
+                    'images/dynamic-price-calculator/Classic/Classic.png'
+                ],
+                [
+                    'images/dynamic-price-calculator/Spectre/Intergrade_Spectre.png',
+                    'images/dynamic-price-calculator/Spectre/Sarmad_Spectre.png',
+                    'images/dynamic-price-calculator/Spectre/Reaver_Spectre.png',
+                    'images/dynamic-price-calculator/Spectre/BlastX_Spectre.png',
+                    'images/dynamic-price-calculator/Spectre/Protocol_781-A_Spectre.png'
+                ],
+                [
+                    'images/dynamic-price-calculator/Vandal/Endeavour_Vandal.webp',
+                    'images/dynamic-price-calculator/Vandal/Venturi_Vandal.webp',
+                    'images/dynamic-price-calculator/Vandal/Black.Market_Vandal.webp',
+                    'images/dynamic-price-calculator/Vandal/Araxys_Vandal.webp',
+                    'images/dynamic-price-calculator/Vandal/Elderflame_Vandal.webp'
+                ],
+                [
+                    'images/dynamic-price-calculator/operator/Infantry_Operator.webp',
+                    'images/dynamic-price-calculator/operator/Tigris_Operator.webp',
+                    'images/dynamic-price-calculator/operator/Ion_Operator.webp',
+                    'images/dynamic-price-calculator/operator/Prelude_to_Chaos_Operator.webp',
+                    'images/dynamic-price-calculator/operator/Operator.webp'
+                ],
+                [
+                    'images/dynamic-price-calculator/Knife/Crimsonbeast_Hammer.webp',
+                    'images/dynamic-price-calculator/Knife/Broken_Blade_of_the_Ruined_King.webp',
+                    'images/dynamic-price-calculator/Knife/RGX_11z_Pro_Firefly.webp',
+                    'images/dynamic-price-calculator/Knife/Power_Fist.webp',
+                    'images/dynamic-price-calculator/Knife/Melee.webp'
+                ]
+            ]
+            var gun_price = [875, 1275, 1775, 2575, 2575]
+            var mel_price = [3550, 4350, 4350, 5950]
+            var price = [0, 0, 0, 0, 0]
+            var total
+            function updateTotal(){
+                return price.reduce((partialSum, a) => partialSum + a, 0);
+            }
+
+            function setGunPrice(gunId, buttonOrder, priceUpdate){
+                $('button').filter(gunId).eq(buttonOrder).click(function(){
+                    $('span').filter(gunId).text(gun_price[buttonOrder])
+                    $('img').filter(gunId).attr('src', img_list[priceUpdate][buttonOrder])
+                    price[priceUpdate] = gun_price[buttonOrder]
+                    $('#total').text(updateTotal())
+                })
+            }
+            function setMeleePrice(buttonOrder){
+                $('button').filter('#melee').eq(buttonOrder).click(function(){
+                    $('span').filter('#melee').text(mel_price[buttonOrder])
+                    $('img').filter('#melee').attr('src', img_list[4][buttonOrder])
+                    price[4] = mel_price[buttonOrder]
+                    $('#total').text(updateTotal())
+                })
+            }
+
+            for(var i = 0; i <= id_list.length; i++){
+                for(var j = 0; j <= id_list.length; j++){
+                    setGunPrice(id_list[i], j, i)
+                }
+                setMeleePrice(i)
+            }
+        })
+    </script>
+    <style>
+        img{
+            max-width: 100%;
+            height: 200px;
+
+            margin: 20px;
+            padding: 5px;
+        }
+
+        button{
+            width: 90%;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .weapon{
+            background-color: #f2e9e4;
+            box-shadow: -5px 5px 10px rgba(0,0,0,0.5);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="container-fluid">
+        <h1 class="display-3 py-3">HCI Assignment 6</h1>
+        <p class="header-text">
+            We were given a list of tasks where we could choose to do at least 3 of them. these tasks involve implementing jQuery, A JavaScript library.<br>
+            But I, Alexander Legolas Myfia, have decided to do all tasks >:)
+        </p>
+    </header>
+    <main class="mx-5 my-4">
+        <h1 class="h1 section-title p-2 mx-auto">Dynamic Price Calculator</h1>
+        <div class="row my-md-5">
+            <div class="col-md-3 my-3 mx-auto weapon">
+                <img src="images/dynamic-price-calculator/Classic/Classic.png" id="classic" class="d-block mx-auto" alt="">
+                <div class="text-center">
+                    <h2>Price: <span id="classic">0</span> VP</h2>
+                    <h4>Choose Skin for Classic</h4>
+                    <div class="my-3">
+                        <button class="btn btn-dark" id="classic">Daydreams</button>
+                        <button class="btn btn-dark" id="classic">Kohaku Matsuba</button>
+                        <button class="btn btn-dark" id="classic">Prime</button>
+                        <button class="btn btn-dark" id="classic">Spectrum</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 my-3 mx-auto weapon">
+                <img src="images/dynamic-price-calculator/Spectre/Spectre.png" id="spectre" class="d-block mx-auto" alt="">
+                <div class="text-center">
+                    <h2>Price: <span id="spectre">0</span> VP</h2>
+                    <h4>Choose Skin for Spectre</h4>
+                    <div class="my-3">
+                        <button class="btn btn-dark" id="spectre">Intergrade</button>
+                        <button class="btn btn-dark" id="spectre">Sarmad</button>
+                        <button class="btn btn-dark" id="spectre">Reaver</button>
+                        <button class="btn btn-dark" id="spectre">BlastX</button>
+                        <button class="btn btn-dark" id="spectre">Protocol 781-A</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 my-3 mx-auto weapon">
+                <img src="images/dynamic-price-calculator/Vandal/Vandal.webp" id="vandal" class="d-block mx-auto" alt="">
+                <div class="text-center">
+                    <h2>Price: <span id="vandal">0</span> VP</h2>
+                    <h4>Choose Skin for Vandal</h4>
+                    <div class="my-3">
+                        <button class="btn btn-dark" id="vandal">Endeavor</button>
+                        <button class="btn btn-dark" id="vandal">Venturi</button>
+                        <button class="btn btn-dark" id="vandal">Black.Market</button>
+                        <button class="btn btn-dark" id="vandal">Araxys</button>
+                        <button class="btn btn-dark" id="vandal">Elderflame</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-md-5">
+            <div class="col-md-4 my-3 mx-auto weapon">
+                <img src="images/dynamic-price-calculator/operator/Operator.webp" id="operator" class="d-block mx-auto" alt="">
+                <div class="text-center">
+                    <h2>Price: <span id="operator">0</span> VP</h2>
+                    <h4>Choose Skin for Operator</h4>
+                    <div class="my-3">
+                        <button class="btn btn-dark" id="operator">Infantry</button>
+                        <button class="btn btn-dark" id="operator">Tigris</button>
+                        <button class="btn btn-dark" id="operator">Ion</button>
+                        <button class="btn btn-dark" id="operator">Prelude To Chaos</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 my-3 mx-auto weapon">
+                <img src="images/dynamic-price-calculator/Knife/Melee.webp" id="melee" class="d-block mx-auto" alt="">
+                <div class="text-center">
+                    <h2>Price: <span id="melee">0</span> VP</h2>
+                    <h4>Choose Skin for Melee</h4>
+                    <div class="my-3">
+                        <button class="btn btn-dark" id="melee">Crimsonbeast</button>
+                        <button class="btn btn-dark" id="melee">Broken Blade of the Ruined King</button>
+                        <button class="btn btn-dark" id="melee">RGX 11z Pro</button>
+                        <button class="btn btn-dark" id="melee">Power Fist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-5 weapon text-center">
+            <h1 class="display-1">Total Price</h1>
+            <h1><span id="total">0</span> VP</h1>
+        </div>
+    </main>
+</body>
+</html>

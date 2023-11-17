@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <title>HCI Assignment 6</title>
+    <style>
+        *{transition: all 0.25s;}
+        .choice{
+            background-color: #f2e9e4;
+            text-align: center;
+            border: 3px solid #9a8c98;
+            border-radius: 10px;
+            box-shadow: -5px 5px 10px #34374a;
+            margin: 0 auto;
+        }
+        .choice h3{
+            padding-bottom: 10px;
+            border-bottom: 4px solid #9a8c98;
+        }
+        .choice:hover{
+            color: #f2e9e4;
+            background-color: #34374a;
+            box-shadow: -10px 10px 10px #22223b;
+            border: 3px solid #f2e9e4;
+        }
+    </style>
+</head>
+<body>
+    <header class="container-fluid">
+        <h1 class="display-3 py-3">HCI Assignment 6</h1>
+        <p class="header-text">
+            We were given a list of tasks where we could choose to do at least 3 of them. these tasks involve implementing jQuery, A JavaScript library.<br>
+            But I, Alexander Legolas Myfia, have decided to do all tasks >:)
+        </p>
+    </header>
+    <main class="mx-5 my-4">
+        <h1 class="section-title display-5 mx-auto">Choose jQuery Task Completion</h1>
+        <section>
+            <div class="row my-5">
+                <div class="choice col-3" onclick="location.href = 'interactive-contact-form.html';">
+                    <h3 class="display-6 my-4">Interactive Contact Form</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Easy</b></h6>
+                    <p class="my-3 small">A form with real-time feedback, shows error if something is wrong</p>
+                </div>
+                <div class="choice col-3" onclick="location.href = 'image-gallery-filter.html';">
+                    <h3 class="display-6 my-4">Image Gallery Filter</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Easy</b></h6>
+                    <p class="my-3 small">A gallery with images that users can filter with category buttons</p>
+                </div>
+                <div class="choice col-3" onclick="location.href = 'dropdown-surprise.html';">
+                    <h3 class="display-6 my-4">Dropdown Surprise</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Easy</b></h6>
+                    <p class="my-3 small">A dropdown menu with unexpected choices</p>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="choice col-3" onclick="location.href = 'dynamic-price-calculator.html';">
+                    <h3 class="display-6 my-4">Dynamic Price Calculator</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Medium</b></h6>
+                    <p class="my-3 small">A price calculator for a product or service with real-time total price update</p>
+                </div>
+                <div class="choice col-3" onclick="location.href = 'accordion-faq.html';">
+                    <h3 class="display-6 my-4">Accordion FAQ</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Easy</b></h6>
+                    <p class="my-3 small">An FAQ section with questions that can be clicked revealing the answers</p>
+                </div>
+                <div class="choice col-3" onclick="location.href = 'endless-reading.html';">
+                    <h3 class="display-6 my-4">Endless Reading</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Hard</b></h6>
+                    <p class="my-3 small">An endless scroll feature which loads new articles as users scroll down</p>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="choice col-3" onclick="location.href = 'interactive-menu.html';">
+                    <h3 class="display-6 my-4">Interactive Menu</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Easy</b></h6>
+                    <p class="my-3 small">A menu where images of the food appears when users hover over a dish</p>
+                </div>
+                <div class="choice col-3" onclick="location.href = 'tabbed-widget.html';">
+                    <h3 class="display-6 my-4">Tabbed Widget</h3>
+                    <h6 class="my-3"><b>Difficulty: Medium</b></h6>
+                    <p class="my-3 small">An FAQ section with questions that can be clicked revealing the answers</p>
+                </div>
+                <div class="choice col-3" onclick="location.href = 'image-zoomer.html';">
+                    <h3 class="display-6 my-4">Image Zoomer</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Hard</b></h6>
+                    <p class="my-3 small">An image viewer that can be zoomed</p>
+                    <h4><b>Coming Soon (?)</b></h4>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="choice col-3" onclick="location.href = 'drag-drop-planner.html';">
+                    <h3 class="display-6 my-4">Drag-n-Drop Planner</h3>
+                    <h6 class="my-3 small"><b>Difficulty: Hard</b></h6>
+                    <p class="my-3 small">A digital planner where users drag and drop tasks/events to arrange them</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
